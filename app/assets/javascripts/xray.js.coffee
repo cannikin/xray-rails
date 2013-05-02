@@ -11,7 +11,7 @@ Xray.init = do ->
 
   # Register keyboard shortcuts
   $(document).keydown (e) ->
-    if e.ctrlKey and e.metaKey and e.keyCode is 88 # cmd+ctrl+x
+    if e.ctrlKey and (e.metaKey or e.shiftKey) and e.keyCode is 88 # cmd+ctrl+x or shift+ctrl+x
       if Xray.isShowing then Xray.hide() else Xray.show()
     if Xray.isShowing and e.keyCode is 27 # esc
       Xray.hide()
